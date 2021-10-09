@@ -10,6 +10,7 @@ package ik.ijse.pos.bo;
 
 
 import ik.ijse.pos.bo.custom.impl.CustomerBOImpl;
+import ik.ijse.pos.bo.custom.impl.ItemBOImpl;
 
 /**
  * @author Sandun Prabashana <sandunprabashana@gmail.com> (prabashana.tk/)
@@ -31,13 +32,15 @@ public class BOFactry {
     }
 
     public enum BOTypes{
-        CUSTOMER,
+        CUSTOMER,ITEM,
     }
 
     public SuperBO getBO(BOTypes boTypes){
         switch (boTypes){
             case CUSTOMER:
                 return new CustomerBOImpl();
+            case ITEM:
+                return new ItemBOImpl();
             default:
                 return null;
         }

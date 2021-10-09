@@ -9,6 +9,7 @@
 package ik.ijse.pos.dao;
 
 import ik.ijse.pos.dao.custom.impl.CustomerDAOImpl;
+import ik.ijse.pos.dao.custom.impl.ItemDAOImpl;
 
 /**
  * @author Sandun Prabashana <sandunprabashana@gmail.com> (prabashana.tk/)
@@ -27,13 +28,15 @@ public class DAOFactry {
     }
 
     public enum DAOType{
-        CUSTOMER,
+        CUSTOMER,ITEM
     }
 
     public SuperDAO getDAO (DAOType daoType){
         switch (daoType){
             case CUSTOMER:
                 return new CustomerDAOImpl();
+            case ITEM:
+                return new ItemDAOImpl();
             default:
                 return null;
         }
